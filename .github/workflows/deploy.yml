@@ -43,7 +43,7 @@ jobs:
                   7E7JEeUCgYBCB64k6mFXlf5CNczSCcK9nTjqUkTD0cefrQ5XxJLcjPqNUfufAqGt
                   +/TZrXiLeu4BdY9sOvT+61Tlkld/EB2sE8ptBB1QO9OCcWmSkMsbN9aOShnn43Go
                   TvwBuJXrynBsUl1NZyvJ8+bA8KQPl3D1Ta2XWtPACnwW/OANg+YLmA==
-                  -----END RSA PRIVATE KEY-----"
+                  -----END RSA PRIVATE KEY----- "
           script: |
             sudo docker stop my-web-app || true
             sudo docker rm my-web-app || true
