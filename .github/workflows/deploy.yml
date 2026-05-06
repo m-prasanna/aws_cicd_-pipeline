@@ -8,18 +8,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # 1. GitHub එකේ තියෙන code එක ගන්නවා
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2. GitHub එකේ code ටික EC2 සර්වර් එකට කොපි කරනවා (SCP පාවිච්චි කරලා)
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: "3.90.241.251"
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "."   # දැනට තියෙන ඔක්කොම files
+          target: "/home/ubuntu/app" # සර්වර් එකේ මේ folder එකට යවනවා
+
+      # 3. සර්වර් එකේදී Docker build කරලා run කරනවා
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.0
         with:
           host: "3.90.241.251"
           username: ubuntu
-          
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            cd /home/ubuntu/app
+            
+            # පරණ container අයින් කරනවා
             sudo docker stop my-web-app || true
             sudo docker rm my-web-app || true
+            
+            # අලුතින් ලැබුණ Dockerfile එකෙන් build කරනවා
             sudo docker build -t my-web-app .
+            
+            # රන් කරනවා
             sudo docker run -d --name my-web-app -p 80:80 my-web-app
