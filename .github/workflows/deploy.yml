@@ -7,9 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout code
@@ -18,13 +15,12 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.0
         with:
+          # Quotes ඇතුළේ කෙලින්ම අගයන් දෙන්න
           host: "3.90.241.251"
           username: ubuntu
           key: "igxEp9e0i5qtyBoUd02urhiG9RYrR4Ix5v8GYQGQ"
           script: |
             sudo docker stop my-web-app || true
             sudo docker rm my-web-app || true
-            
-            # Dockerfile එක තියෙන තැනට මුලින්ම යන්න ඕනේ නම් මෙතනට 'cd path' එකක් දාන්න
             sudo docker build -t my-web-app .
             sudo docker run -d --name my-web-app -p 80:80 my-web-app
