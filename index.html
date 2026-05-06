@@ -2,243 +2,577 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sri Lanka Travel</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Serendipity Sri Lanka | Modern Travel Escape</title>
+  <!-- Google Fonts & Smooth Scroll Behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-
-    body{background:#f8fafc;color:#1e293b;scroll-behavior:smooth}
-
-    /* Navbar */
-    nav{
-      position:fixed;
-      width:100%;
-      top:0;
-      display:flex;
-      justify-content:space-between;
-      padding:15px 60px;
-      background:rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      color:#fff;
-      z-index:1000;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    nav a{color:#fff;text-decoration:none;margin-left:20px;font-weight:500}
-
-    /* Hero */
-    header{
-      height:100vh;
-      background:url('https://images.unsplash.com/photo-1544739313-6fadf73f4c3b') center/cover no-repeat;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-      position:relative;
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf5;
+      color: #1e2a2e;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
-    header::after{
-      content:'';
-      position:absolute;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.4);
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e9e3d5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c47b4b;
+      border-radius: 10px;
     }
 
-    header .content{
-      position:relative;
-      z-index:2;
-      animation:fadeUp 1.5s ease;
+    /* global image style for AI-like / modern imagery */
+    img {
+      max-width: 100%;
+      display: block;
+      object-fit: cover;
     }
 
-    header h1{font-size:64px;font-weight:700}
-    header p{margin-top:15px;font-size:20px}
-
-    /* Sections */
-    section{padding:100px 60px}
-
-    h2{text-align:center;font-size:32px;margin-bottom:40px}
-
-    /* Cards */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:25px;
+    /* smooth reveal animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.9s ease;
+    }
+    .fade-up.reveal {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card{
-      border-radius:20px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
-      transform:translateY(40px);
-      opacity:0;
-      transition:0.6s ease;
+    /* header / navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.2rem 2rem;
+      background: rgba(255, 253, 245, 0.92);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: all 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #b7632c, #e6a157);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      color: #2c5f2d;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e2f;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+    .nav-links a:hover {
+      color: #c4682c;
+    }
+    /* hero section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(125deg, #f8f1e0 0%, #fef7ed 100%);
+      overflow: hidden;
+    }
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      z-index: 3;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(to right, #a54517, #bc6f2c, #3b6e3b);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #2d3e2b;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    .btn-cta {
+      background: #c1652c;
+      border: none;
+      padding: 0.9rem 2.4rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 60px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.2s;
+      box-shadow: 0 8px 18px rgba(193,101,44,0.25);
+    }
+    .btn-cta:hover {
+      background: #9e4a1c;
+      transform: scale(1.03);
+    }
+    /* floating decor element */
+    .hero-illustration {
+      position: absolute;
+      bottom: -20px;
+      right: -40px;
+      width: 400px;
+      opacity: 0.15;
+      pointer-events: none;
     }
 
-    .card:hover{
-      transform:translateY(-10px) scale(1.02);
+    /* section general */
+    section {
+      padding: 5rem 2rem;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      color: #2e4a2c;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      width: 70px;
+      height: 4px;
+      background: #dc8e4a;
+      display: block;
+      margin: 0.8rem auto 0;
+      border-radius: 4px;
     }
 
-    .card img{width:100%;height:220px;object-fit:cover}
-
-    .card h3{padding:15px;font-size:20px}
-
-    /* Gallery */
-    .gallery img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-      border-radius:15px;
+    /* card grid — places */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: white;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 40px -12px rgba(0,0,0,0.2);
+    }
+    .card-img {
+      height: 240px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .card:hover .card-img img {
+      transform: scale(1.06);
+    }
+    .card-content {
+      padding: 1.5rem;
+    }
+    .card-content h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #bc6f2c;
+    }
+    .card-content p {
+      color: #4a5b44;
+      line-height: 1.4;
     }
 
-    /* Contact */
-    form{
-      max-width:500px;
-      margin:auto;
-      display:flex;
-      flex-direction:column;
-      gap:15px;
+    /* experiential quote / modern AI image banner */
+    .experience-banner {
+      background: linear-gradient(105deg, #1f3520 0%, #2c4c2a 100%);
+      border-radius: 3rem;
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      color: white;
+    }
+    .banner-text {
+      flex: 1.2;
+      padding: 1rem;
+    }
+    .banner-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .banner-text p {
+      margin: 1rem 0;
+      opacity: 0.9;
+    }
+    .banner-image {
+      flex: 0.9;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    }
+    .banner-image img {
+      width: 100%;
+      transition: transform 0.5s;
+    }
+    .banner-image:hover img {
+      transform: scale(1.02);
     }
 
-    input, textarea{
-      padding:12px;
-      border-radius:10px;
-      border:1px solid #ccc;
+    /* gallery / modern AI style */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      border-radius: 1.8rem;
+      overflow: hidden;
+      height: 260px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .overlay-text {
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      width: 100%;
+      padding: 1.2rem;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
     }
 
-    button{
-      padding:12px;
-      border:none;
-      background:#0ea5e9;
-      color:#fff;
-      border-radius:10px;
-      cursor:pointer;
+    /* footer */
+    footer {
+      background: #1e2a1c;
+      color: #e6dfcf;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+    .social-icons i {
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .social-icons i:hover {
+      color: #dc8e4a;
+      transform: translateY(-3px);
     }
 
-    footer{
-      text-align:center;
-      padding:25px;
-      background:#020617;
-      color:#fff;
-    }
-
-    /* Animations */
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(50px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    /* Responsive */
-    @media(max-width:768px){
-      nav{padding:15px 20px}
-      header h1{font-size:40px}
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+      .hero {
+        padding-top: 7rem;
+      }
+      .experience-banner {
+        flex-direction: column;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<!-- Navbar -->
-<nav>
-  <h2>Sri Lanka</h2>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#places">Places</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
-  </div>
+<nav class="navbar">
+  <div class="logo"><span>🌿</span> Serendipity <span> Sri Lanka</span></div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#gallery">Moments</a></li>
+    <li><a href="#contact">Explore</a></li>
+  </ul>
 </nav>
 
-<!-- Hero -->
-<header id="home">
-  <div class="content">
-    <h1>Discover Sri Lanka</h1>
-    <p>Explore beaches, mountains & culture</p>
+<!-- Hero Section with AI-style image (placeholder but modern sri lanka visual) -->
+<section id="home" class="hero">
+  <div class="hero-content fade-up">
+    <h1>Discover the Pearl of the Indian Ocean</h1>
+    <p>Misty hills, golden shores, wild elephants & timeless culture — Sri Lanka awaits. Let modern wanderlust meet ancient soul.</p>
+    <button class="btn-cta" id="exploreBtn">Start Your Journey →</button>
   </div>
-</header>
-
-<!-- Places -->
-<section id="places">
-  <h2>Top Destinations</h2>
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd">
-      <h3>Sigiriya</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb">
-      <h3>Ella</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766">
-      <h3>Nuwara Eliya</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1589802829985-817e51171b92">
-      <h3>Galle Fort</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523">
-      <h3>Yala Safari</h3>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1617268170347-87d1f0e5c5e8">
-      <h3>Mirissa Beach</h3>
-    </div>
-
+  <div class="hero-illustration">
+    <!-- subtle decoration -->
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="80" stroke="#C4682C" stroke-width="1.5" stroke-dasharray="6 6" fill="none"/>
+      <path d="M100 20 L100 180 M20 100 L180 100" stroke="#C4682C" stroke-width="1" stroke-dasharray="4 4"/>
+    </svg>
   </div>
 </section>
 
-<!-- Gallery -->
+<!-- Destinations / key places -->
+<section id="destinations">
+  <div class="container">
+    <div class="section-title fade-up">Iconic Sri Lankan Escapes</div>
+    <div class="cards-grid">
+      <div class="card fade-up">
+        <div class="card-img"><img src="https://placecats.com/600/400?random=1" alt="Sigiriya Rock Fortress" loading="lazy"></div>
+        <div class="card-content"><h3>Sigiriya Lion Rock</h3><p>Ancient rock fortress & UNESCO gem, climb to cloud-piercing frescoes and panoramic jungle views.</p></div>
+      </div>
+      <div class="card fade-up">
+        <div class="card-img"><img src="https://placecats.com/600/401?random=2" alt="Temple of the Tooth" loading="lazy"></div>
+        <div class="card-content"><h3>Kandy & Temple of Tooth</h3><p>Sacred city nestled among hills, home to the revered tooth relic & cultural pageantry.</p></div>
+      </div>
+      <div class="card fade-up">
+        <div class="card-img"><img src="https://placecats.com/600/402?random=3" alt="Ella green hills" loading="lazy"></div>
+        <div class="card-content"><h3>Ella & Nine Arches</h3><p>Lush tea plantations, misty valleys, and the iconic bridge winding through emerald jungle.</p></div>
+      </div>
+      <div class="card fade-up">
+        <div class="card-img"><img src="https://placecats.com/600/403?random=4" alt="Galle Fort" loading="lazy"></div>
+        <div class="card-content"><h3>Galle Dutch Fort</h3><p>Colonial charm meets ocean breeze — walk along ramparts at sunset and boutique vibes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE BANNER: modern AI image & Sri lanka highlight -->
+<section id="experiences">
+  <div class="container">
+    <div class="experience-banner fade-up">
+      <div class="banner-text">
+        <h2><i class="fas fa-leaf"></i> Where the wild elephants roam</h2>
+        <p>Experience the authentic soul of Sri Lanka — from the pristine beaches of Mirissa to the highlands of Nuwara Eliya. Our AI-crafted journeys blend tradition, nature, and luxury.</p>
+        <button class="btn-cta" style="background:#e1a46b; color:#2d3e2b;">Explore curated trips</button>
+      </div>
+      <div class="banner-image">
+        <!-- real images: Sri Lanka elephant & nature (using unsplash high quality sri lanka specific) -->
+        <img src="https://images.pexels.com/photos/1154636/pexels-photo-1154636.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sri Lanka wild elephant safari" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY section with stunning Sri Lanka images (modern mix) -->
 <section id="gallery">
-  <h2>Sri Lanka Views</h2>
-  <div class="grid gallery">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
+  <div class="container">
+    <div class="section-title fade-up">Visual Poetry of Sri Lanka</div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-up"><img src="https://images.pexels.com/photos/4567359/pexels-photo-4567359.jpeg?auto=compress&cs=tinysrgb&w=600" alt="tea plantation sri lanka"><div class="overlay-text">🌱 Tea Hills of Nuwara Eliya</div></div>
+      <div class="gallery-item fade-up"><img src="https://images.pexels.com/photos/1709514/pexels-photo-1709514.jpeg?auto=compress&cs=tinysrgb&w=600" alt="beach sri lanka"><div class="overlay-text">🏝️ Mirissa Beach & Whales</div></div>
+      <div class="gallery-item fade-up"><img src="https://images.pexels.com/photos/1460784/pexels-photo-1460784.jpeg?auto=compress&cs=tinysrgb&w=600" alt="stilt fishermen"><div class="overlay-text">🎣 Stilt Fishermen - Southern Coast</div></div>
+      <div class="gallery-item fade-up"><img src="https://images.pexels.com/photos/615264/pexels-photo-615264.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Buddha statue"><div class="overlay-text">🛕 Ancient Anuradhapura</div></div>
+    </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact</h2>
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Message" required></textarea>
-    <button>Send Message</button>
-  </form>
+<!-- contact / modern trip planner with smooth msg -->
+<section id="contact" style="background: #f5efe2;">
+  <div class="container" style="text-align: center;">
+    <div class="fade-up">
+      <h2 class="section-title" style="margin-bottom: 1rem;">Plan your Modern Sri Lankan Odyssey</h2>
+      <p style="max-width: 600px; margin: 0 auto 2rem; color: #3a5e3a;">Let us craft an itinerary blending sacred temples, wildlife, and coastal bliss — sustainably designed.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <input type="email" placeholder="Your email address" id="emailInput" style="padding: 0.9rem 1.5rem; border-radius: 60px; border: none; width: 280px; font-family: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        <button id="notifyBtn" class="btn-cta" style="background:#2c5f2d;">Get Travel Inspiration →</button>
+      </div>
+      <p id="formFeedback" style="margin-top: 1rem; font-size: 0.9rem; color:#bc6f2c;"></p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Sri Lanka Travel | Modern UI</p>
+  <div class="social-icons">
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-youtube"></i>
+  </div>
+  <p>© 2025 Serendipity Sri Lanka — wander responsibly & embrace the island's magic.</p>
+  <p style="font-size: 0.8rem; margin-top: 1rem;">🌏 Authentic Sri Lankan experiences | modern travel redefined</p>
 </footer>
 
 <script>
-  const cards = document.querySelectorAll('.card');
-
-  window.addEventListener('scroll', () => {
-    cards.forEach(card => {
-      const top = card.getBoundingClientRect().top;
-      if(top < window.innerHeight - 100){
-        card.style.opacity = 1;
-        card.style.transform = 'translateY(0)';
+  // Smooth reveal on scroll using Intersection Observer
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+  
+  fadeElements.forEach(el => observer.observe(el));
+  
+  // pre-reveal any if they become visible on load (just in case)
+  window.addEventListener('load', () => {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('reveal');
+      }
+    });
+    // also update images (replace placeholder cat images with actual high-quality Sri Lanka photos)
+    // we upgrade card images to real images related to Sri Lanka (modern AI imagery approach)
+    const cardsImgMap = [
+      "https://images.pexels.com/photos/1028225/pexels-photo-1028225.jpeg?auto=compress&cs=tinysrgb&w=600",   // Sigiriya
+      "https://images.pexels.com/photos/5614630/pexels-photo-5614630.jpeg?auto=compress&cs=tinysrgb&w=600",   // Temple of tooth
+      "https://images.pexels.com/photos/2802085/pexels-photo-2802085.jpeg?auto=compress&cs=tinysrgb&w=600",   // Nine arches/Ella
+      "https://images.pexels.com/photos/3722819/pexels-photo-3722819.jpeg?auto=compress&cs=tinysrgb&w=600"    // Galle Fort
+    ];
+    const cardImages = document.querySelectorAll('.card-img img');
+    if (cardImages.length === cardsImgMap.length) {
+      for (let i = 0; i < cardImages.length; i++) {
+        cardImages[i].src = cardsImgMap[i];
+        cardImages[i].alt = "Sri Lanka destination";
+      }
+    }
+    // also update banner image if low quality? it's already pexels high res. But keep consistency
+    // fixing the hero missing any image? we add an artistic modern AI style scenic background? but it's fine.
+    // To make more "Sri Lanka modern" embed a small floating widget style update
+  });
+  
+  // explore button smooth Scroll to destination
+  const exploreBtn = document.getElementById('exploreBtn');
+  if(exploreBtn){
+    exploreBtn.addEventListener('click', () => {
+      document.getElementById('destinations').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  
+  // newsletter notifier
+  const notifyBtn = document.getElementById('notifyBtn');
+  const emailInput = document.getElementById('emailInput');
+  const feedback = document.getElementById('formFeedback');
+  
+  notifyBtn.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+    if(email === "" || !email.includes('@') || !email.includes('.')){
+      feedback.textContent = "✨ Please enter a valid email to receive Sri Lanka travel secrets.";
+      feedback.style.color = "#c4682c";
+    } else {
+      feedback.textContent = "🌴 Thank you! Your journey to Sri Lanka begins now. Check your inbox.";
+      feedback.style.color = "#2c5f2d";
+      emailInput.value = "";
+      setTimeout(() => {
+        feedback.textContent = "";
+      }, 3500);
+    }
+  });
+  
+  // navigation smooth active highlight + interactive
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if(targetSection){
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      } else if(targetId === 'contact') {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      } else if(targetId === 'experiences'){
+        document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
+      } else if(targetId === 'gallery'){
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+      } else if(targetId === 'home'){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
   });
+  
+  // dynamic navbar background on scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if(window.scrollY > 40){
+      navbar.style.background = "rgba(255, 253, 245, 0.97)";
+      navbar.style.boxShadow = "0 6px 20px rgba(0,0,0,0.05)";
+    } else {
+      navbar.style.background = "rgba(255, 253, 245, 0.92)";
+      navbar.style.boxShadow = "none";
+    }
+  });
+  
+  // small additional animation for cards gallery items: mouse parallax extra?
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', (e) => {
+      card.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+    });
+  });
+  
+  // Ensure that all images are modern and on brand: final preload fallback but we set high quality sri lanka images
+  // Also for gallery items we already changed to authentic photographs. 
+  // For further perfection: add a modern 'ai image generator vibe' but we stick to real photography, clean look.
+  console.log("Serendipity Sri Lanka — modern travel experience ready");
 </script>
-
 </body>
 </html>
