@@ -1,10 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Docker App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Lanka Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#f5f5f5;color:#333}
+    header{height:100vh;background:url('https://images.unsplash.com/photo-1589187155475-c9e6d9a64c8f') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    header h1{font-size:60px;animation:fadeInDown 2s}
+    header p{margin-top:20px;font-size:20px;animation:fadeInUp 2s}
+    nav{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.7);padding:10px 50px;display:flex;justify-content:space-between;color:#fff;z-index:1000}
+    nav a{color:#fff;text-decoration:none;margin:0 10px}
+    section{padding:80px 50px}
+    .places{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.4s}
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;height:200px;object-fit:cover}
+    .card h3{padding:15px}
+    footer{text-align:center;padding:20px;background:#222;color:#fff}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+  </style>
 </head>
 <body>
-    <h1>!</h1>
-    <p></p>
+
+<nav>
+  <h2>Sri Lanka Travel</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#places">Places</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header id="home">
+  <div>
+    <h1>Explore Sri Lanka</h1>
+    <p>The Pearl of the Indian Ocean</p>
+  </div>
+</header>
+
+<section id="places">
+  <h2 style="text-align:center;margin-bottom:40px">Top Destinations</h2>
+  <div class="places">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd">
+      <h3>Sigiriya Rock</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb">
+      <h3>Ella</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766">
+      <h3>Nuwara Eliya</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1589802829985-817e51171b92">
+      <h3>Galle Fort</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523">
+      <h3>Yala National Park</h3>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1617268170347-87d1f0e5c5e8">
+      <h3>Mirissa Beach</h3>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 style="text-align:center;margin-bottom:20px">Contact Us</h2>
+  <form style="max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px">
+    <input type="text" placeholder="Your Name" required style="padding:10px">
+    <input type="email" placeholder="Your Email" required style="padding:10px">
+    <textarea placeholder="Message" required style="padding:10px"></textarea>
+    <button style="padding:10px;background:#007BFF;color:#fff;border:none;cursor:pointer">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Sri Lanka Travel | Designed by Madhu</p>
+</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      if(cardTop < window.innerHeight - 50){
+        card.style.opacity = 1;
+        card.style.transform = 'translateY(0)';
+      }
+    });
+  });
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(50px)';
+    card.style.transition = '0.6s ease';
+  });
+</script>
+
 </body>
 </html>
