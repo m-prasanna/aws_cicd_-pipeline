@@ -18,32 +18,32 @@ jobs:
           username: ubuntu
           # මෙතනට Secret එක දෙන්න
           key: ${{ -----BEGIN RSA PRIVATE KEY-----
-                        MIIEpAIBAAKCAQEA6df40D73WyNXQq8g+vx1l+PkGq+VBCBOT+tkLOfByNEk4Jps
-                        XSbccyv9qpwFVxKT9bXvgDlx+XEzPyLAZ1HDCESVs++/ZWeOziZQon8d1PFw5C+i
-                        KuNqrQsuc8/4BXM8U8ARgAo1vCivXjBlbMpwC77scOxtCVpvxxdSFvNVC/gPI1fo
-                        r55wi4vL00FK7SFNLKRsY/d0jjVnJpShx5H3q60Um7ZietI2jq2OBOWikl5bag4W
-                        LRL271rNwh9c43IxHfPCIpANoOW4ivCfZAwsP6Vu3EPanI8T7wYIrtj3JlR86YkM
-                        Ii2xQnGNTHckZW3XEsUL7fa53DfoDcWKpWz8oQIDAQABAoIBAQCAlniF2voeLbLg
-                        Qnk6SvVHDtPyMLcay8EEhYZSgya2jPtgXspT9vimhHw7AwyUsuyV4vPOaMhZyHvL
-                        rgprRjSfKUfA6Icw9d87USpqEMiQviu77s2YE/InMczbdnMGXDXCQA3fgL3Ht/+n
-                        JanARxmR++z8s6XJzOdGbXaAlFIh/7r5ZGh1CVDixX9RG54Yb1JaO/kmQa1Mxefv
-                        FwPYh5p/r2l/xOrtO6u8qvIR2V6EiKwTUn2TSytER7gMtlsvv0Jw26ETrhpkV/39
-                        wuWud60gG7U+9t8BWHGVFUHI7JkHra11TgCGWT8wCWJsaaUs8g4Xw7z03ohvT7gv
-                        jTlEGNyZAoGBAPqQo7KjoMUb1rHb9fPWJn/BpskcgCF9BOR/WNdOK6xbCE8Q9Xbf
-                        1t6ggQ/QBH2hKhUsADYZ1At9HS+OuERZ3P/CRnDBjeJePfjCw+J8mlYR6JshYhgt
-                        JK/jyeoaEJIW0LaTypPIILZXHuyWJX9RkXB2IJJArava5MGLKsB3MSCPAoGBAO7q
-                        ewcyAtPTrlLuw2k/CLSoa6YTjAqxPVH8hul96D2J/7Qk2z3LCmVwZHM0W5gB2Luf
-                        XqMSJYNh2k6fgKtpNy6obIiM7cf2gHa66cE6Q14hDxAmCC0St6SiH7LnQMXd3qLW
-                        m34+yeWdDRSER9Sf/gWe1ONuYSBu3IYPFwMOlEfPAoGBAMHhn7k/4cwDcYpokJUf
-                        9ORQXRUrB35iNaH1ZDIdm6+fNPuxPK7CH4pemd85b/Ah/+UoCfXS4IAPTMEa5zyE
-                        aHxCwKzJKFer4roVQuuCzQ2ih+FZ4ISikcvEL94EUyQnoVJVY6AccCuHmDcrK1Ks
-                        NCTYUvW4NGpRU0brv6Xz1MDDAoGAEBde3ecyZY32ScOnCamjLnfBeFgMsJOra6A0
-                        fflq8OogfMOWuJy6QIbHXTMDkENfk5NyTk1klWq7x1va0LCvdMcHOFM1mKgzksuX
-                        /tmru+VCHHZTSqXeFIqO0//bTvhYjGMj6ebUtlBTlzQpmlqEQ2ClOgQvKn4NAEJ3
-                        7E7JEeUCgYBCB64k6mFXlf5CNczSCcK9nTjqUkTD0cefrQ5XxJLcjPqNUfufAqGt
-                        +/TZrXiLeu4BdY9sOvT+61Tlkld/EB2sE8ptBB1QO9OCcWmSkMsbN9aOShnn43Go
-                        TvwBuJXrynBsUl1NZyvJ8+bA8KQPl3D1Ta2XWtPACnwW/OANg+YLmA==
-                        -----END RSA PRIVATE KEY----- }}
+                  MIIEpAIBAAKCAQEA6df40D73WyNXQq8g+vx1l+PkGq+VBCBOT+tkLOfByNEk4Jps
+                  XSbccyv9qpwFVxKT9bXvgDlx+XEzPyLAZ1HDCESVs++/ZWeOziZQon8d1PFw5C+i
+                  KuNqrQsuc8/4BXM8U8ARgAo1vCivXjBlbMpwC77scOxtCVpvxxdSFvNVC/gPI1fo
+                  r55wi4vL00FK7SFNLKRsY/d0jjVnJpShx5H3q60Um7ZietI2jq2OBOWikl5bag4W
+                  LRL271rNwh9c43IxHfPCIpANoOW4ivCfZAwsP6Vu3EPanI8T7wYIrtj3JlR86YkM
+                  Ii2xQnGNTHckZW3XEsUL7fa53DfoDcWKpWz8oQIDAQABAoIBAQCAlniF2voeLbLg
+                  Qnk6SvVHDtPyMLcay8EEhYZSgya2jPtgXspT9vimhHw7AwyUsuyV4vPOaMhZyHvL
+                  rgprRjSfKUfA6Icw9d87USpqEMiQviu77s2YE/InMczbdnMGXDXCQA3fgL3Ht/+n
+                  JanARxmR++z8s6XJzOdGbXaAlFIh/7r5ZGh1CVDixX9RG54Yb1JaO/kmQa1Mxefv
+                  FwPYh5p/r2l/xOrtO6u8qvIR2V6EiKwTUn2TSytER7gMtlsvv0Jw26ETrhpkV/39
+                  wuWud60gG7U+9t8BWHGVFUHI7JkHra11TgCGWT8wCWJsaaUs8g4Xw7z03ohvT7gv
+                  jTlEGNyZAoGBAPqQo7KjoMUb1rHb9fPWJn/BpskcgCF9BOR/WNdOK6xbCE8Q9Xbf
+                  1t6ggQ/QBH2hKhUsADYZ1At9HS+OuERZ3P/CRnDBjeJePfjCw+J8mlYR6JshYhgt
+                  JK/jyeoaEJIW0LaTypPIILZXHuyWJX9RkXB2IJJArava5MGLKsB3MSCPAoGBAO7q
+                  ewcyAtPTrlLuw2k/CLSoa6YTjAqxPVH8hul96D2J/7Qk2z3LCmVwZHM0W5gB2Luf
+                  XqMSJYNh2k6fgKtpNy6obIiM7cf2gHa66cE6Q14hDxAmCC0St6SiH7LnQMXd3qLW
+                  m34+yeWdDRSER9Sf/gWe1ONuYSBu3IYPFwMOlEfPAoGBAMHhn7k/4cwDcYpokJUf
+                  9ORQXRUrB35iNaH1ZDIdm6+fNPuxPK7CH4pemd85b/Ah/+UoCfXS4IAPTMEa5zyE
+                  aHxCwKzJKFer4roVQuuCzQ2ih+FZ4ISikcvEL94EUyQnoVJVY6AccCuHmDcrK1Ks
+                  NCTYUvW4NGpRU0brv6Xz1MDDAoGAEBde3ecyZY32ScOnCamjLnfBeFgMsJOra6A0
+                  fflq8OogfMOWuJy6QIbHXTMDkENfk5NyTk1klWq7x1va0LCvdMcHOFM1mKgzksuX
+                  /tmru+VCHHZTSqXeFIqO0//bTvhYjGMj6ebUtlBTlzQpmlqEQ2ClOgQvKn4NAEJ3
+                  7E7JEeUCgYBCB64k6mFXlf5CNczSCcK9nTjqUkTD0cefrQ5XxJLcjPqNUfufAqGt
+                  +/TZrXiLeu4BdY9sOvT+61Tlkld/EB2sE8ptBB1QO9OCcWmSkMsbN9aOShnn43Go
+                  TvwBuJXrynBsUl1NZyvJ8+bA8KQPl3D1Ta2XWtPACnwW/OANg+YLmA==
+                  -----END RSA PRIVATE KEY----- }}
           script: |
             sudo docker stop my-web-app || true
             sudo docker rm my-web-app || true
