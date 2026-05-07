@@ -62,12 +62,19 @@ End Users
 # ✨ Features
 
 ✅ Dockerized web application
+
 ✅ Automated deployment using GitHub Actions
+
 ✅ AWS EC2 hosting
+
 ✅ CI/CD pipeline implementation
+
 ✅ Load balancing support
+
 ✅ CloudWatch monitoring integration
+
 ✅ IAM role-based permissions
+
 ✅ Production-style DevOps workflow
 
 ---
